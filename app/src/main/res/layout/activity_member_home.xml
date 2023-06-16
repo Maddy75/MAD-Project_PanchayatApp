@@ -7,7 +7,7 @@
     tools:context=".MemberHome">
 
     <Button
-        android:id="@+id/btnration"
+        android:id="@+id/btnRation"
         android:layout_width="365dp"
         android:layout_height="66dp"
         android:text="RATION"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.748" />
 
     <Button
-        android:id="@+id/btnattenmem"
+        android:id="@+id/btnAttendance"
         android:layout_width="365dp"
         android:layout_height="66dp"
         android:text="ATTENDENCE"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.632" />
 
     <Button
-        android:id="@+id/btnappli"
+        android:id="@+id/btnApplications"
         android:layout_width="365dp"
         android:layout_height="66dp"
         android:text="APPLICATIONS"

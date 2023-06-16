@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MyPanchayat"
         tools:targetApi="31" >
         <activity
+            android:name=".MGNREGRequest"
+            android:exported="false" />
+        <activity
             android:name=".Signup"
             android:exported="false" />
         <activity
@@ -25,7 +28,7 @@
             android:name=".Ration"
             android:exported="false" />
         <activity
-            android:name=".MgnregaRequest"
+            android:name=".Services"
             android:exported="false" />
         <activity
             android:name=".MGNREGA"

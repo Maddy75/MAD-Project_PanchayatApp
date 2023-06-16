@@ -106,9 +106,9 @@ public class Login extends AppCompatActivity {
                 selectedText = selectedRadioButton.getText().toString();
             }
         });
-//        if (auth.getCurrentUser() != null) {
-//            Intent intent = new Intent(Login.this, MainActivity.class);
-//            startActivity(intent);
-//        }
+        if (auth.getCurrentUser() != null) {
+            Intent intent = new Intent(Login.this, UserHome.class);
+            startActivity(intent);
+        }
     }
 }

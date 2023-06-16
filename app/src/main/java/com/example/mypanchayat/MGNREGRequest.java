@@ -4,35 +4,35 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.mypanchayat.Models.Requests;
-import com.example.mypanchayat.databinding.ActivityAvaasRequestBinding;
+import com.example.mypanchayat.databinding.ActivityMgnregrequestBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ktx.Firebase;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvaasRequest extends AppCompatActivity {
+public class MGNREGRequest extends AppCompatActivity {
 
-    ActivityAvaasRequestBinding binding;
+    ActivityMgnregrequestBinding binding;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     String selectedStateItem, selectedDistrictItem, selectedTalukItem, selectedVillageItem, selectedWardItem;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        binding = ActivityAvaasRequestBinding.inflate(getLayoutInflater());
+        binding = ActivityMgnregrequestBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+
 
         // STATE spinner values
         String[] stateValues = {"   ---   ", "Karnataka"};
@@ -82,7 +82,7 @@ public class AvaasRequest extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(AvaasRequest.this, "Select values from the list to continue", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MGNREGRequest.this, "Select values from the list to continue", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -133,7 +133,7 @@ public class AvaasRequest extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(AvaasRequest.this, "Select District to continue", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MGNREGRequest.this, "Select District to continue", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -159,7 +159,7 @@ public class AvaasRequest extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(AvaasRequest.this, "Select a Taluk to Continue", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MGNREGRequest.this, "Select a Taluk to Continue", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -180,7 +180,7 @@ public class AvaasRequest extends AppCompatActivity {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(AvaasRequest.this, "Select a ward to continue", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MGNREGRequest.this, "Select a ward to continue", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -197,11 +197,11 @@ public class AvaasRequest extends AppCompatActivity {
             }
         });
 
-        binding.avaasrequest.setOnClickListener(new View.OnClickListener() {
+        binding.btnMgnRegaRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Requests newRequest = new Requests(
-                        "AVAAS",
+                        "MGNREGA",
                         auth.getUid(),
                         selectedStateItem,
                         selectedDistrictItem,
@@ -215,7 +215,7 @@ public class AvaasRequest extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
-                            Toast.makeText(AvaasRequest.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MGNREGRequest.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
                             binding.spinnerState.setSelection(0);
                             districtValues.clear();
                             adapterDistrict.notifyDataSetChanged();
@@ -234,6 +234,5 @@ public class AvaasRequest extends AppCompatActivity {
 
             }
         });
-
     }
 }
