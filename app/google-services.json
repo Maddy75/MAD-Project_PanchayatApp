@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "791328038188",
+    "project_id": "panchaytapplication",
+    "storage_bucket": "panchaytapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791328038188:android:58638d578e522639cca089",
+        "android_client_info": {
+          "package_name": "com.example.mypanchayat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791328038188-4pdgp1iadnjcvsloif88762440unc9tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKZ5wFjQx9LU2aqvptokW4GL4UEZWNeCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791328038188-4pdgp1iadnjcvsloif88762440unc9tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

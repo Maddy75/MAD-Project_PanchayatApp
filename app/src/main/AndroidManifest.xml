@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyPanchayat"
+        tools:targetApi="31" >
+        <activity
+            android:name=".Signup"
+            android:exported="false" />
+        <activity
+            android:name=".ViewRation"
+            android:exported="false" />
+        <activity
+            android:name=".RegComplaint"
+            android:exported="false" />
+        <activity
+            android:name=".Ration"
+            android:exported="false" />
+        <activity
+            android:name=".MgnregaRequest"
+            android:exported="false" />
+        <activity
+            android:name=".MGNREGA"
+            android:exported="false" />
+        <activity
+            android:name=".AvaasRequest"
+            android:exported="false" />
+        <activity
+            android:name=".AvaasYojan"
+            android:exported="false" />
+        <activity
+            android:name=".Complaints"
+            android:exported="false" />
+        <activity
+            android:name=".Applications"
+            android:exported="false" />
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".MemberProfile"
+            android:exported="false" />
+        <activity
+            android:name=".AdminProfile"
+            android:exported="false" />
+        <activity
+            android:name=".UserHome"
+            android:exported="false" />
+        <activity
+            android:name=".MemberHome"
+            android:exported="false" />
+        <activity
+            android:name=".AdminHome"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
