@@ -106,6 +106,14 @@ public class Login extends AppCompatActivity {
                 selectedText = selectedRadioButton.getText().toString();
             }
         });
+
+        binding.tvDontHvAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Login.this, Signup.class);
+                startActivity(intent);
+            }
+        });
 //        if (auth.getCurrentUser() != null) {
 //            Intent intent = new Intent(Login.this, UserHome.class);
 //            startActivity(intent);

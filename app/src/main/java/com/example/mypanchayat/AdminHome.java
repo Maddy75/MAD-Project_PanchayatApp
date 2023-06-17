@@ -27,5 +27,13 @@ public class AdminHome extends AppCompatActivity {
             }
         });
 
+        binding.btnComplaint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminHome.this, Complaints.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

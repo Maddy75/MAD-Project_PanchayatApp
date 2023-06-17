@@ -14,7 +14,7 @@
         tools:layout_editor_absoluteY="260dp">
 
         <Spinner
-            android:id="@+id/state9"
+            android:id="@+id/spinnerDistrict"
             android:layout_width="253dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +25,7 @@
             app:layout_constraintVertical_bias="0.313" />
 
         <Spinner
-            android:id="@+id/state12"
+            android:id="@+id/spinnerState"
             android:layout_width="253dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.218" />
 
         <Spinner
-            android:id="@+id/state10"
+            android:id="@+id/spinnerTaluka"
             android:layout_width="253dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
             app:layout_constraintVertical_bias="0.404" />
 
         <Spinner
-            android:id="@+id/state8"
+            android:id="@+id/spinnerVillage"
             android:layout_width="253dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +58,7 @@
             app:layout_constraintVertical_bias="0.499" />
 
         <Spinner
-            android:id="@+id/state7"
+            android:id="@+id/spinnerWard"
             android:layout_width="253dp"
             android:layout_height="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -69,13 +69,12 @@
             app:layout_constraintVertical_bias="0.606" />
 
         <EditText
-            android:id="@+id/editTextText22"
+            android:id="@+id/etAbout"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:ems="10"
             android:hint="about"
             android:inputType="text"
-            android:text="  "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.661"
@@ -210,11 +209,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.215" />
 
-        <TextView
-            android:id="@+id/textView37"
+        <EditText
+            android:id="@+id/etDescription"
             android:layout_width="210dp"
             android:layout_height="68dp"
-            android:text="Reasons"
+            android:hint="Reasons"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/avaasrequest"
             app:layout_constraintEnd_toEndOf="parent"
