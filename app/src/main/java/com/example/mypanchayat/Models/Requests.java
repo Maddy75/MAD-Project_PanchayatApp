@@ -2,7 +2,7 @@ package com.example.mypanchayat.Models;
 
 public class Requests {
 
-    String requestCategory, userId, stateName, districtName, talukaName, villageName, wardName, userName, userPhoneNo, userAadhaarNo;
+    private String requestCategory, requestId,userId, stateName, districtName, talukaName, villageName, wardName, userName, userPhoneNo, userAadhaarNo;
 
     public Requests(String requestCategory, String userId, String stateName, String districtName, String talukaName, String villageName, String wardName, String userName, String userPhoneNo, String userAadhaarNo) {
         this.requestCategory = requestCategory;
@@ -15,6 +15,14 @@ public class Requests {
         this.userName = userName;
         this.userPhoneNo = userPhoneNo;
         this.userAadhaarNo = userAadhaarNo;
+    }
+
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
 
     public String getUserId() {

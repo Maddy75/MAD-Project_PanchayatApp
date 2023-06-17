@@ -7,7 +7,7 @@
     tools:context=".Ration">
 
     <EditText
-        android:id="@+id/editTextText17"
+        android:id="@+id/etQuantity"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:ems="10"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.069" />
 
     <Button
-        android:id="@+id/avaasrequest"
+        android:id="@+id/btnUpdate"
         android:layout_width="187dp"
         android:layout_height="73dp"
         android:text="Update"
@@ -147,7 +147,7 @@
         app:layout_constraintVertical_bias="0.198" />
 
     <Spinner
-        android:id="@+id/state"
+        android:id="@+id/spinnerState"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +158,7 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <Spinner
-        android:id="@+id/district"
+        android:id="@+id/spinnerDistrict"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -169,7 +169,7 @@
         app:layout_constraintVertical_bias="0.308" />
 
     <Spinner
-        android:id="@+id/taluka"
+        android:id="@+id/spinnerTaluka"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -180,7 +180,7 @@
         app:layout_constraintVertical_bias="0.414" />
 
     <Spinner
-        android:id="@+id/village"
+        android:id="@+id/spinnerVillage"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +191,7 @@
         app:layout_constraintVertical_bias="0.505" />
 
     <Spinner
-        android:id="@+id/ward"
+        android:id="@+id/spinnerWard"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -202,7 +202,7 @@
         app:layout_constraintVertical_bias="0.604" />
 
     <Spinner
-        android:id="@+id/item"
+        android:id="@+id/spinnerItem"
         android:layout_width="253dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
