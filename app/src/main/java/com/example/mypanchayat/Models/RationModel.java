@@ -2,14 +2,14 @@ package com.example.mypanchayat.Models;
 
 public class RationModel {
 
-    private String rationId, userId, stateName, districtName, talukaName, villageName, wardName, itemName, rationQuantity;
+    private String rationId, userId, stateName, districtName, talukaName, villageName, wardName, itemName, rationQuantity, rationPic;
     private long rationUploadTime, rationValidityTime;
 
     public RationModel() {
 
     }
 
-    public RationModel(String userId, String stateName, String districtName, String talukaName, String villageName, String wardName, String itemName, String rationQuantity, long rationUploadTime, long rationValidityTime) {
+    public RationModel(String userId, String stateName, String districtName, String talukaName, String villageName, String wardName, String itemName, String rationQuantity, long rationUploadTime, long rationValidityTime, String rationPic) {
         this.userId = userId;
         this.stateName = stateName;
         this.districtName = districtName;
@@ -20,6 +20,15 @@ public class RationModel {
         this.rationQuantity = rationQuantity;
         this.rationUploadTime = rationUploadTime;
         this.rationValidityTime = rationValidityTime;
+        this.rationPic = rationPic;
+    }
+
+    public String getRationPic() {
+        return rationPic;
+    }
+
+    public void setRationPic(String rationPic) {
+        this.rationPic = rationPic;
     }
 
     public String getRationId() {

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#9DC86C"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/tvItemCount"
+        android:layout_width="101dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="10dp"
+        android:text="Item No"
+        android:textAlignment="center"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="66dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:src="@drawable/shopping_cart_24"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemCount" />
+
+    <TextView
+        android:id="@+id/tvItemName"
+        android:layout_width="82dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="Name"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemCount" />
+
+    <TextView
+        android:id="@+id/tvValidity"
+        android:layout_width="74dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="20dp"
+        android:hint="Validity"
+        app:layout_constraintStart_toEndOf="@+id/tvItemName"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemCount" />
+
+    <TextView
+        android:id="@+id/tvAvailability"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:hint="Availability"
+        android:textColor="#08FF00"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
+
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:hint="quant"
+        app:layout_constraintStart_toEndOf="@+id/textView39"
+        app:layout_constraintTop_toBottomOf="@+id/tvValidity" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="55dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Quantity"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/tvAvailability"
+        app:layout_constraintTop_toBottomOf="@+id/tvValidity" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

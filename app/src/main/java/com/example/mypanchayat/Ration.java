@@ -3,6 +3,7 @@ package com.example.mypanchayat;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +14,12 @@ import android.widget.Toast;
 import com.example.mypanchayat.Models.RationModel;
 import com.example.mypanchayat.databinding.ActivityRationBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
@@ -28,7 +32,9 @@ public class Ration extends AppCompatActivity {
     ActivityRationBinding binding;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    String selectedStateItem, selectedDistrictItem, selectedTalukItem, selectedVillageItem, selectedWardItem, selectedItemName;
+    String selectedStateItem, selectedDistrictItem, selectedTalukItem, selectedVillageItem, selectedWardItem, selectedItemName, rationPic;
+
+    FirebaseStorage storage = FirebaseStorage.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +73,7 @@ public class Ration extends AppCompatActivity {
         adapterWard.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinnerWard.setAdapter(adapterWard);
 
-        String[] rationList = {"      ", "Rice", "Oil", "Wheat", "Sugar", "Salt", "Dal", "Kerosine"};
+        String[] rationList = {"      ", "Rice", "Oil", "Wheat", "Sugar", "Salt", "Dal", "Kerosene"};
         ArrayAdapter<String> adapterItems = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, rationList);
         adapterItems.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinnerItem.setAdapter(adapterItems);
@@ -224,37 +230,47 @@ public class Ration extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                RationModel newRation = new RationModel(
-                        auth.getUid(),
-                        selectedStateItem,
-                        selectedDistrictItem,
-                        selectedTalukItem,
-                        selectedVillageItem,
-                        selectedWardItem,
-                        selectedItemName,
-                        binding.etQuantity.getText().toString(),
-                        currentTimeStamp,
-                        futureTimeMillis);
-                database.getReference().child("Ration").push().setValue(newRation).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                StorageReference reference = storage.getReference().child("Ration");
+                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Toast.makeText(Ration.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
-                            binding.spinnerState.setSelection(0);
-                            districtValues.clear();
-                            adapterDistrict.notifyDataSetChanged();
-                            talukaValues.clear();
-                            adapterTaluka.notifyDataSetChanged();
-                            villageValues.clear();
-                            adapterVillage.notifyDataSetChanged();
-                            wardValues.clear();
-                            adapterWard.notifyDataSetChanged();
-                            binding.spinnerItem.setSelection(0);
-                            binding.etQuantity.setText("");
-                        }
+                    public void onSuccess(Uri uri) {
+                        rationPic = uri.toString();
+
+                        RationModel newRation = new RationModel(
+                                auth.getUid(),
+                                selectedStateItem,
+                                selectedDistrictItem,
+                                selectedTalukItem,
+                                selectedVillageItem,
+                                selectedWardItem,
+                                selectedItemName,
+                                binding.etQuantity.getText().toString(),
+                                currentTimeStamp,
+                                futureTimeMillis,
+                                rationPic);
+
+                        database.getReference().child("Ration").push().setValue(newRation).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()) {
+                                    Toast.makeText(Ration.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
+                                    binding.spinnerState.setSelection(0);
+                                    districtValues.clear();
+                                    adapterDistrict.notifyDataSetChanged();
+                                    talukaValues.clear();
+                                    adapterTaluka.notifyDataSetChanged();
+                                    villageValues.clear();
+                                    adapterVillage.notifyDataSetChanged();
+                                    wardValues.clear();
+                                    adapterWard.notifyDataSetChanged();
+                                    binding.spinnerItem.setSelection(0);
+                                    binding.etQuantity.setText("");
+                                }
+                            }
+                        });
                     }
                 });
-
             }
         });
     }

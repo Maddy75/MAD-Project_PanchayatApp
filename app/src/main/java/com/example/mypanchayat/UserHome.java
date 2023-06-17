@@ -41,5 +41,13 @@ public class UserHome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.btnrationfetch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserHome.this, ViewRation.class);
+                startActivity(intent);
+            }
+        });
     }
 }
