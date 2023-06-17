@@ -87,6 +87,9 @@ public class Login extends AppCompatActivity {
                                     }
                                 });
                                 break;
+                            } else {
+                                progressDialog.dismiss();
+                                Toast.makeText(Login.this, "Invalid User!!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

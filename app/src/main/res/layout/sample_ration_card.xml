@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profileImage"
+        android:id="@+id/itemProfile"
         android:layout_width="66dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -42,7 +42,7 @@
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/itemProfile"
         app:layout_constraintTop_toBottomOf="@+id/tvItemCount" />
 
     <TextView
@@ -64,7 +64,7 @@
         android:hint="Availability"
         android:textColor="#08FF00"
         android:textStyle="italic"
-        app:layout_constraintStart_toEndOf="@+id/profileImage"
+        app:layout_constraintStart_toEndOf="@+id/itemProfile"
         app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
 
     <TextView

@@ -231,46 +231,47 @@ public class Ration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                StorageReference reference = storage.getReference().child("Ration");
-                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                StorageReference reference = storage.getReference().child("Ration/" + selectedItemName + ".jpg");
+//                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+//                    @Override
+//                    public void onSuccess(Uri uri) {
+//                        rationPic = uri.toString();
+//                    }
+//                });
+
+                RationModel newRation = new RationModel(
+                        auth.getUid(),
+                        selectedStateItem,
+                        selectedDistrictItem,
+                        selectedTalukItem,
+                        selectedVillageItem,
+                        selectedWardItem,
+                        selectedItemName,
+                        binding.etQuantity.getText().toString(),
+                        currentTimeStamp,
+                        futureTimeMillis,
+                        rationPic);
+
+                database.getReference().child("Ration").push().setValue(newRation).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onSuccess(Uri uri) {
-                        rationPic = uri.toString();
-
-                        RationModel newRation = new RationModel(
-                                auth.getUid(),
-                                selectedStateItem,
-                                selectedDistrictItem,
-                                selectedTalukItem,
-                                selectedVillageItem,
-                                selectedWardItem,
-                                selectedItemName,
-                                binding.etQuantity.getText().toString(),
-                                currentTimeStamp,
-                                futureTimeMillis,
-                                rationPic);
-
-                        database.getReference().child("Ration").push().setValue(newRation).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()) {
-                                    Toast.makeText(Ration.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
-                                    binding.spinnerState.setSelection(0);
-                                    districtValues.clear();
-                                    adapterDistrict.notifyDataSetChanged();
-                                    talukaValues.clear();
-                                    adapterTaluka.notifyDataSetChanged();
-                                    villageValues.clear();
-                                    adapterVillage.notifyDataSetChanged();
-                                    wardValues.clear();
-                                    adapterWard.notifyDataSetChanged();
-                                    binding.spinnerItem.setSelection(0);
-                                    binding.etQuantity.setText("");
-                                }
-                            }
-                        });
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(Ration.this, "Request Submitted!!", Toast.LENGTH_LONG).show();
+                            binding.spinnerState.setSelection(0);
+                            districtValues.clear();
+                            adapterDistrict.notifyDataSetChanged();
+                            talukaValues.clear();
+                            adapterTaluka.notifyDataSetChanged();
+                            villageValues.clear();
+                            adapterVillage.notifyDataSetChanged();
+                            wardValues.clear();
+                            adapterWard.notifyDataSetChanged();
+                            binding.spinnerItem.setSelection(0);
+                            binding.etQuantity.setText("");
+                        }
                     }
                 });
+
             }
         });
     }

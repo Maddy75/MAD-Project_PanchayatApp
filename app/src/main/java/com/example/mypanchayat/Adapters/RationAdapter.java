@@ -1,9 +1,12 @@
 package com.example.mypanchayat.Adapters;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mypanchayat.Models.RationModel;
 import com.example.mypanchayat.Models.Requests;
 import com.example.mypanchayat.R;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -50,6 +56,18 @@ public class RationAdapter extends RecyclerView.Adapter<RationAdapter.ViewHolder
 
         RationModel model = list.get(position);
 
+        Log.d("profilePicDebug", model.getItemName());
+        StorageReference reference = storage.getReference().child("Ration/" + model.getItemName() + ".jpg");
+        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Log.d("profilePicDebug", "Inside..");
+                Picasso.get().load(uri).placeholder(R.drawable.shopping_cart_24).into(holder.itemPic);
+//                holder.itemPic.setImageURI(uri);
+                Log.d("profilePicDebug", "Inside..");
+            }
+        });
+
         holder.tvItemCount.setText("Item - " + (position+1));
         holder.tvItemAvailability.setText("Available!!!");
         holder.tvItemName.setText(model.getItemName());
@@ -64,6 +82,7 @@ public class RationAdapter extends RecyclerView.Adapter<RationAdapter.ViewHolder
 
         holder.tvItemValidity.setText(formattedDate);
         holder.tvItemQuantity.setText(model.getRationQuantity());
+
     }
 
     @Override
@@ -74,6 +93,7 @@ public class RationAdapter extends RecyclerView.Adapter<RationAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvItemCount, tvItemName, tvItemAvailability, tvItemQuantity, tvItemValidity;
+        ImageView itemPic;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -82,6 +102,7 @@ public class RationAdapter extends RecyclerView.Adapter<RationAdapter.ViewHolder
             tvItemAvailability = itemView.findViewById(R.id.tvAvailability);
             tvItemValidity = itemView.findViewById(R.id.tvValidity);
             tvItemQuantity = itemView.findViewById(R.id.tvQuantity);
+            itemPic = itemView.findViewById(R.id.itemProfile);
 
         }
 
